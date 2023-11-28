@@ -1,3 +1,11 @@
+# vscode
+.vscode
+bin
+debug
+obj
+
+
+# C++ 
 # Prerequisites
 *.d
 
