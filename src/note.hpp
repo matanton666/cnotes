@@ -12,10 +12,4 @@ public:
     ~Note();
 };
 
-Note::Note(string title): _title(title)
-{
-}
 
-Note::~Note()
-{
-}
