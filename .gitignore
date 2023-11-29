@@ -1,8 +1,8 @@
 # vscode
-.vscode
-bin
-debug
-obj
+.vscode/
+bin/
+debug/
+obj/
 
 
 # C++ 
