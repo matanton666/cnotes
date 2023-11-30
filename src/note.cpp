@@ -1,6 +1,7 @@
-#include "note.hpp"
+#include "include/note.hpp"
 
-Note::Note(string title, unsigned int id): _title(title), _id(id)
+Note::Note(string title, unsigned int id) :
+    _title(title), _id(id)
 {
 }
 

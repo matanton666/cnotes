@@ -15,6 +15,7 @@ public:
     string getTitle() const;
     unsigned int getId() const;
     virtual void print() const = 0;
+    // TODO: add serialize and deserialize for saving in file
 };
 
 
