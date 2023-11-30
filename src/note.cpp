@@ -1,12 +1,20 @@
 #include "include/note.hpp"
+#include "note.hpp"
 
-Note::Note(string title, unsigned int id) :
-    _title(title), _id(id)
+unsigned int Note::_idCount;
+
+unsigned int Note::generateId()
+{
+    return ++_idCount;
+}
+
+Note::Note(string title) : _title(title), _id(generateId())
 {
 }
 
 Note::~Note()
 {
+    _idCount--;
 }
 
 string Note::getTitle() const
@@ -17,4 +25,8 @@ string Note::getTitle() const
 unsigned int Note::getId() const
 {
     return _id;
+}
+void Note::printHead() const
+{
+    cout << getId() << ") " << getTitle();
 }

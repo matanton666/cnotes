@@ -1,18 +1,23 @@
 #include "include/Folder.hpp"
 
-Folder::Folder(string name, unsigned int id) : 
-    Note(name, id)
+Folder::Folder(string name) : 
+    Note(name)
 {
 }
 
-Folder::Folder(string name, unsigned int id, vector<Note*> notes) : 
-    Note(name, id)
+Folder::Folder(string name, vector<Note*> notes) : 
+    Note(name)
 {
     set(notes);   
 }
 
 Folder::~Folder()
 {
+    for (int i = 0; i < _notes.size(); i++)
+    {
+        delete _notes[i];
+        _notes[i] = nullptr;
+    }
 }
 
 void Folder::print() const
@@ -22,6 +27,12 @@ void Folder::print() const
         _notes[i]->print();
     }
 }
+void Folder::printHead() const
+{
+    Note::printHead();
+    cout << " | Folder\n";
+}
+
 void Folder::set(vector<Note*> notes)
 {
     _notes = notes;

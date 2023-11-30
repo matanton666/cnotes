@@ -1,4 +1,5 @@
 #include "include/listNote.hpp"
+#include "listNote.hpp"
 
 void ListNote::printList() const
 {
@@ -9,16 +10,15 @@ void ListNote::printList() const
     
 }
 
-ListNote::ListNote(string title, unsigned int id, vector<string> list) : 
-    Note(title, id)
+ListNote::ListNote(string title, vector<string> list) : 
+    Note(title)
 {
     set(list);
 }
 
-ListNote::ListNote(string title, unsigned int id) :
-    Note(title, id)
+ListNote::ListNote(string title) :
+    Note(title)
 {
-    _list = new vector<string>();
 }
 
 ListNote::~ListNote()
@@ -27,10 +27,15 @@ ListNote::~ListNote()
 
 void ListNote::print() const
 {
-    cout << getId() << ") " << getTitle() << "\n";
+    printHead();
     printList();
 }
 
+void ListNote::printHead() const
+{
+    Note::printHead();
+    cout << " | List\n";
+}
 void ListNote::append(string entrie)
 {
     _list.push_back(entrie);

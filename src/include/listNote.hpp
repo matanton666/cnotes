@@ -12,11 +12,12 @@ private:
     void printList() const;
 
 public:
-    ListNote(string title, unsigned int id, vector<string> list);
-    ListNote(string title, unsigned int id);
+    ListNote(string title, vector<string> list);
+    ListNote(string title);
     ~ListNote();
 
     virtual void print() const override;
+    virtual void printHead() const override;
     void append(string entrie);
     void set(vector<string> list);
 

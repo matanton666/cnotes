@@ -1,15 +1,15 @@
 #include "include/textNote.hpp"
 
 
-TextNote::TextNote(string title, unsigned int id, string content) : 
-    Note(title, id), _content(content)
+TextNote::TextNote(string title, string content) : 
+    Note(title), _content(content)
 {
 }
 
-TextNote::TextNote(string title, unsigned int id) :
-    Note(title, id)
+TextNote::TextNote(string title) :
+    Note(title)
 {
-    _content = "";
+    set("");
 }
 TextNote::~TextNote()
 {
@@ -17,7 +17,14 @@ TextNote::~TextNote()
 
 void TextNote::print() const
 {
-    cout << getId() << ") " << getTitle() << "\n\t" << _content << "\n";
+    printHead();
+    cout << "\t" << _content << "\n";
+}
+
+void TextNote::printHead() const
+{
+    Note::printHead();
+    cout << " | Text\n";
 }
 
 
