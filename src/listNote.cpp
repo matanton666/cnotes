@@ -2,14 +2,15 @@
 
 void ListNote::printList() const
 {
-    for (auto entrie : *_list) 
+    for (auto entrie : _list) 
     {
         cout << "\t[+] " << entrie << "\n";
     }
     
 }
 
-ListNote::ListNote(string title, unsigned int id, vector<string> *list) : Note(title, id)
+ListNote::ListNote(string title, unsigned int id, vector<string> list) : 
+    Note(title, id)
 {
     set(list);
 }
@@ -32,11 +33,11 @@ void ListNote::print() const
 
 void ListNote::append(string entrie)
 {
-    _list->push_back(entrie);
+    _list.push_back(entrie);
 }
 
-void ListNote::set(vector<string> *list)
+void ListNote::set(vector<string> list)
 {
-    _list->clear();
+    _list.clear();
     _list = list;
 }

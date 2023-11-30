@@ -1,7 +1,7 @@
 #include <iostream>
 #include "textNote.hpp"
 #include "listNote.hpp"
-
+// TODO: add notes note 
 int main() {
     TextNote* tx = new TextNote("a note", 1, "this is the content"); 
     tx->print();
