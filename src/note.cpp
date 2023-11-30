@@ -12,11 +12,6 @@ Note::Note(string title) : _title(title), _id(generateId())
 {
 }
 
-Note::~Note()
-{
-    _idCount--;
-}
-
 string Note::getTitle() const
 {
     return _title;

@@ -16,7 +16,6 @@ Folder::~Folder()
     for (int i = 0; i < _notes.size(); i++)
     {
         delete _notes[i];
-        _notes[i] = nullptr;
     }
 }
 
