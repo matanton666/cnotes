@@ -1,9 +1,6 @@
 #pragma once
 #include "note.hpp"
 
-#include <iostream>
-
-using std::cout;
 
 
 class TextNote : public Note

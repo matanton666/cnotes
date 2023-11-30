@@ -17,7 +17,7 @@ TextNote::~TextNote()
 
 void TextNote::print() const
 {
-    cout << getId() << ") " << getTitle() << "\n" << _content << "\n";
+    cout << getId() << ") " << getTitle() << "\n\t" << _content << "\n";
 }
 
 
