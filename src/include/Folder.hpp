@@ -5,7 +5,7 @@
 
 using std::vector;
 
-class Folder : Note
+class Folder : public Note
 {
 private:
     vector<Note*> _notes;

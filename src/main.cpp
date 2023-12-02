@@ -34,6 +34,12 @@ int main(int argc, char* argv[]) {
         break;
     }
 
+    // TODO: remove after testing
+    for (auto note : notes) 
+    {
+        note->print();
+    }
+
     
     return 0;
 }

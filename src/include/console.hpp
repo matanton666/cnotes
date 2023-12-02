@@ -19,7 +19,7 @@ Commands getCommand(char* argv[]);
 
 void printHelp();
 Note* newNote(string type);
-bool editNote();
+bool editNote(vector<Note*>& notes);
 void listNotes();
 void showNote(); 
 

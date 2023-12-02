@@ -33,12 +33,42 @@ Note* newNote(string type)
         return new TextNote(title, content);
     }
 
+    else if (type == "list") {
+        ListNote* note;
+        string content = " ";
+
+        string title = getUserInput("enter title");
+        note = new ListNote(title);
+        cout << "enter content (enter nothing to stop):\n";
+
+
+        while (content != "") 
+        {
+            string query = "[+]";
+            content = getUserInput(query);
+            note->append(content);
+        }
+        // TODO: remove the last entrie
+
+        return note;
+    }
+
+    else if (type == "folder") {
+        string title;
+        Folder* folder;
+
+        title = getUserInput("enter title");
+        folder = new Folder(title);
+
+        return folder;
+    }
+
     return nullptr;
 }
 
-bool editNote()
+bool editNote(vector<Note*>& notes)
 {
-    return false;
+
 }
 
 void listNotes()
@@ -52,7 +82,7 @@ void showNote()
 string getUserInput(string message)
 {
     string input;
-    cout << message << "\n-> ";
+    cout << message << " -> ";
     std::getline(std::cin, input);
     return input;
 }
