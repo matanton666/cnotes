@@ -5,7 +5,7 @@ const int OPTION = 2;
 int main(int argc, char* argv[]) {
     vector<Note*> notes;
     string option;
-    
+
     if (argc <= 1 || argc > 3) {
         printHelp();
         return 1;
@@ -22,11 +22,37 @@ int main(int argc, char* argv[]) {
         printHelp();
         break;
     }
+
+    case HELP: {
+        printHelp();
+        break;
+    }
+
     case NEW: {
         Note* note = newNote(option);
         if (note != nullptr) {
             notes.push_back(note);
         }
+        else {
+            std::cerr << "`" << option << "` is not a valid type (use `help` for type list)";
+        }
+        break;
+    }
+
+    case REMOVE: {
+        if (!removeNote(notes, option)) {
+            std::cerr << "`" << option << "` is not a note number";
+        }
+        break;
+    }
+
+    case SHOW: {
+        showNote(notes, option);
+        break;
+    }
+
+    case LIST: {
+        listNotes(notes);
         break;
     }
 
@@ -34,13 +60,11 @@ int main(int argc, char* argv[]) {
         break;
     }
 
-    // TODO: remove after testing
     for (auto note : notes) 
     {
-        note->print();
+        delete note;
     }
 
-    
     return 0;
 }
  
