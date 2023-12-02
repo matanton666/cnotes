@@ -15,7 +15,9 @@ private:
 
 public:
     Note(string title);
-    ~Note();
+    virtual ~Note() {
+        _idCount--;
+    }
 
 
     string getTitle() const;
