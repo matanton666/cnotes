@@ -26,7 +26,6 @@ public:
     virtual void print() const = 0;
 
     // TODO: add serialize and deserialize for saving in file
-    // TODO: add static create id
 };
 
 
