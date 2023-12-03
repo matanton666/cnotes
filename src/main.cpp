@@ -1,4 +1,7 @@
-#include "console.hpp"
+#include "note.hpp"
+#include "listNote.hpp"
+#include "textNote.hpp"
+#include "Folder.hpp"
 
 const int OPTION = 2;
 
