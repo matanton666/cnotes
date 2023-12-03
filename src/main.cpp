@@ -2,6 +2,7 @@
 #include "listNote.hpp"
 #include "textNote.hpp"
 #include "Folder.hpp"
+#include "console.hpp"
 
 const int OPTION = 2;
 
