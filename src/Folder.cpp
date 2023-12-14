@@ -3,10 +3,11 @@
 Folder::Folder(string name) : 
     Note(name)
 {
+    _type = FOLDER_NOTE;
 }
 
 Folder::Folder(string name, vector<Note*> notes) : 
-    Note(name)
+    Folder(name)
 {
     set(notes);   
 }
@@ -21,8 +22,10 @@ Folder::~Folder()
 
 void Folder::print() const
 {
+    printHead();
     for (int i = 0; i < _notes.size(); i++)
     {
+        std::cout << "\t";
         _notes[i]->print();
     }
 }
@@ -30,6 +33,27 @@ void Folder::printHead() const
 {
     Note::printHead();
     cout << " | Folder\n";
+}
+
+const unsigned int Folder::getClassSize() const 
+{
+    return sizeof(*this);
+}
+
+json Folder::serialize() const 
+{
+    json j;
+    j["title"] = getTitle();
+    j["type"] = _type;
+    j["id"] = getId();
+    
+    j["content"];
+    for (int i = 0; i < _notes.size(); i++)
+    {
+        j["content"].push_back(_notes[i]->serialize());
+    }
+
+    return j;
 }
 
 void Folder::set(vector<Note*> notes)

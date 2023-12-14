@@ -3,6 +3,8 @@
 bin/
 debug/
 obj/
+.notes
+
 
 
 # C++ 

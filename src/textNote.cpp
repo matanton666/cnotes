@@ -2,15 +2,25 @@
 
 
 TextNote::TextNote(string title, string content) : 
-    Note(title), _content(content)
+    TextNote(title)
 {
+    _content = content;
 }
 
 TextNote::TextNote(string title) :
     Note(title)
 {
     set("");
+    _type = TEXT_NOTE;
 }
+
+TextNote::TextNote(const TextNote& other): Note(other.getTitle())
+{
+    _type = other._type;
+    _content = other._content;
+}
+
+
 TextNote::~TextNote()
 {
 }
@@ -25,6 +35,21 @@ void TextNote::printHead() const
 {
     Note::printHead();
     cout << " | Text\n";
+}
+
+const unsigned int TextNote::getClassSize() const 
+{
+    return sizeof(*this);
+}
+
+json TextNote::serialize() const 
+{
+    json j;
+    j["title"] = getTitle();
+    j["type"] = _type;
+    j["id"] = getId();
+    j["content"] = _content;
+    return j;
 }
 
 
