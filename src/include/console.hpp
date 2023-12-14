@@ -13,6 +13,7 @@ enum Commands
     LIST,
     SHOW,
     REMOVE,
+    ADD,
     INVALID,
     HELP,
 };
@@ -24,6 +25,7 @@ Note* newNote(string type);
 bool removeNote(vector<Note*>& notes, string option);
 void listNotes(vector<Note*>& notes);
 void showNote(vector<Note*>& notes, string option);
+void addNoteToFolder(vector<Note*>& notes, string option);
 
 string getUserInput(string message);
 Note* getNoteFromNotes(vector<Note*>& notes, string option);

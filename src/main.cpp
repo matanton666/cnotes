@@ -69,6 +69,11 @@ int main(int argc, char *argv[])
         break;
     }
 
+    case ADD: {
+        addNoteToFolder(notes, option);
+        break;
+    }
+
     default:
         break;
     }
