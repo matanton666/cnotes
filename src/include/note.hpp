@@ -3,9 +3,11 @@
 #include <iostream>
 #include <istream>
 #include <ostream>
+#include "json.hpp"
 
 using std::string;
 using std::cout;
+using json = nlohmann::json;
 
 enum NoteType {
     ABSTRACT_NOTE,
@@ -36,10 +38,19 @@ public:
     string getTitle() const;
     unsigned int getId() const;
     const NoteType getNoteType() const;
-    const unsigned int getClassSize() const;
 
     virtual void printHead() const;
     virtual void print() const = 0;
+    virtual const unsigned int getClassSize() const = 0;
+    // format:
+    // {
+    //     "title": "title",
+    //     "type": "type",
+    //     "id": "id",
+    //     "content": "content"
+    // }
+    virtual json serialize() const = 0;
+
 
     virtual Note& operator=(const Note& other) // TODO: use this in reading from file
     {

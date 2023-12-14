@@ -33,6 +33,27 @@ void Folder::printHead() const
     cout << " | Folder\n";
 }
 
+const unsigned int Folder::getClassSize() const 
+{
+    return sizeof(*this);
+}
+
+json Folder::serialize() const 
+{
+    json j;
+    j["title"] = getTitle();
+    j["type"] = _type;
+    j["id"] = getId();
+    
+    j["content"];
+    for (int i = 0; i < _notes.size(); i++)
+    {
+        j["content"].push_back(_notes[i]->serialize());
+    }
+
+    return j;
+}
+
 void Folder::set(vector<Note*> notes)
 {
     _notes = notes;

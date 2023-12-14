@@ -18,6 +18,9 @@ public:
 
     virtual void print() const override;
     virtual void printHead() const override;
+    virtual const unsigned int getClassSize() const override;
+    virtual json serialize() const override;
+
     void append(string entrie);
     void set(vector<string> list);
 

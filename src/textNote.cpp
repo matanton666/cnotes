@@ -37,6 +37,21 @@ void TextNote::printHead() const
     cout << " | Text\n";
 }
 
+const unsigned int TextNote::getClassSize() const 
+{
+    return sizeof(*this);
+}
+
+json TextNote::serialize() const 
+{
+    json j;
+    j["title"] = getTitle();
+    j["type"] = _type;
+    j["id"] = getId();
+    j["content"] = _content;
+    return j;
+}
+
 
 void TextNote::append(string newContent) 
 {
