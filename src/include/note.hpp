@@ -38,6 +38,8 @@ public:
     string getTitle() const;
     unsigned int getId() const;
     const NoteType getNoteType() const;
+    //! use only in folder.cpp
+    void resetId(unsigned int id);
 
     virtual void printHead() const;
     virtual void print() const = 0;

@@ -104,7 +104,12 @@ void showNote(vector<Note*>& notes, string option)
         }
     }
     else {
-        getNoteFromNotes(notes, option)->print();
+        Note* n = getNoteFromNotes(notes, option);
+        if (n == nullptr) {
+            std::cerr << "`" << option << "` is not a note number";
+            return;
+        }
+        n->print();
     }   
 }
 
@@ -154,7 +159,7 @@ Note *getNoteFromNotes(vector<Note *> &notes, string option)
 {
     int noteNum = std::stoi(option);
 
-    if (noteNum <= 0 || noteNum >= notes.size()) // invalid size
+    if (noteNum <= 0 || noteNum > notes.size()) // invalid size
     {
         return nullptr;
     }

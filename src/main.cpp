@@ -44,7 +44,12 @@ int main(int argc, char *argv[])
     case NEW: {
         Note* note = newNote(option);
         if (note != nullptr) {
-            notes.push_back(note);
+            if (option == "folder") {
+                notes.push_back(note);
+            }
+            else {
+                notes.insert(notes.begin(), note); // push front
+            }
         }
         else {
             std::cerr << "`" << option << "` is not a valid type (use `help` for type list)";
@@ -152,15 +157,14 @@ Note* deserialize(json j) {
     }
 
     case FOLDER_NOTE: {
-        vector<Note*> notes;
+        Folder* f = new Folder(
+            j.at("title").get<string>()
+            );
         for (auto note : j.at("content").get<json>())
         {
-            notes.push_back(deserialize(note));
+            f->append(deserialize(note));
         }
-        return new Folder(
-            j.at("title").get<string>(),
-            notes
-            );
+        return f;
         break;
     }
     

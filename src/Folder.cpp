@@ -25,7 +25,7 @@ void Folder::print() const
     printHead();
     for (int i = 0; i < _notes.size(); i++)
     {
-        std::cout << "\t";
+        std::cout << "  ";
         _notes[i]->print();
     }
 }
@@ -63,6 +63,7 @@ void Folder::set(vector<Note*> notes)
 
 void Folder::append(Note* note) 
 {
+    note->resetId(_notes.size() + 1);
     _notes.push_back(note);
 }
 
