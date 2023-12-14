@@ -41,22 +41,23 @@ Note* newNote(string type)
 
     else if (type == "list") {
         ListNote* note;
-        string content = " ";
+        string content = "";
 
         string title = getUserInput("enter title");
         note = new ListNote(title);
         cout << "enter content (enter nothing to stop):\n";
 
 
-        while (content != "") 
+        do
         {
             string query = "[+]";
             content = getUserInput(query);
-            note->append(content);
-        }
-        // TODO: remove the last entrie
+            if (content != "") {
+                note->append(content);
+            }
+        } while (content != "");
 
-        return note;
+            return note;
     }
 
     else if (type == "folder") {
