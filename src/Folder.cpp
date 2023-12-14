@@ -22,8 +22,10 @@ Folder::~Folder()
 
 void Folder::print() const
 {
+    printHead();
     for (int i = 0; i < _notes.size(); i++)
     {
+        std::cout << "\t";
         _notes[i]->print();
     }
 }
