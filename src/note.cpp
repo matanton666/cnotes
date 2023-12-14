@@ -25,6 +25,12 @@ const NoteType Note::getNoteType() const
 {
     return _type;
 }
+
+void Note::resetId(unsigned int id)
+{
+    _idCount--;
+    _id = id;
+}
 const unsigned int Note::getClassSize() const
 {
     return sizeof(*this);
