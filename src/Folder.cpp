@@ -3,10 +3,11 @@
 Folder::Folder(string name) : 
     Note(name)
 {
+    _type = FOLDER_NOTE;
 }
 
 Folder::Folder(string name, vector<Note*> notes) : 
-    Note(name)
+    Folder(name)
 {
     set(notes);   
 }

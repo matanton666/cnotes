@@ -2,15 +2,25 @@
 
 
 TextNote::TextNote(string title, string content) : 
-    Note(title), _content(content)
+    TextNote(title)
 {
+    _content = content;
 }
 
 TextNote::TextNote(string title) :
     Note(title)
 {
     set("");
+    _type = TEXT_NOTE;
 }
+
+TextNote::TextNote(const TextNote& other): Note(other.getTitle())
+{
+    _type = other._type;
+    _content = other._content;
+}
+
+
 TextNote::~TextNote()
 {
 }

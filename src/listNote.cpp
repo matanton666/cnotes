@@ -11,7 +11,7 @@ void ListNote::printList() const
 }
 
 ListNote::ListNote(string title, vector<string> list) : 
-    Note(title)
+    ListNote(title)
 {
     set(list);
 }
@@ -19,6 +19,7 @@ ListNote::ListNote(string title, vector<string> list) :
 ListNote::ListNote(string title) :
     Note(title)
 {
+    _type = LIST_NOTE;
 }
 
 ListNote::~ListNote()

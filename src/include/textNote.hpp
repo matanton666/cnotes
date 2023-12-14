@@ -10,6 +10,7 @@ private:
 public:
     TextNote(string title, string content);
     TextNote(string title);
+    TextNote(const TextNote& other);
     ~TextNote();
 
     virtual void print() const override;
